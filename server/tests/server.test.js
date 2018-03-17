@@ -109,3 +109,57 @@ describe('POST /tag/location', () => {
   });
 
 });
+
+describe('POST /location/emotions', () => {
+
+  it('should show locations list from nearest to farthest to the input location', function(done) {
+    this.timeout(15000);
+
+    var lat = 28.5967439;
+    var lng = 77.3285038;
+
+    request(app)
+      .post('/location/emotions')
+      .send({
+        lat,
+        lng
+      })
+      .expect(200)
+      .expect((res) => {
+        expect(res.body.locations[0].distance).toExist();
+      })
+      .end((err, res) => {
+        if (err) {
+          return done(err);
+        }
+
+        done();
+      });
+
+  });
+
+  it('should return validation error if proper request not sent', function(done) {
+    this.timeout(15000);
+
+    //missing property name or not in the following vars
+    var lat = 28.5967439;
+    var long = 77.3285038;
+
+    request(app)
+      .post('/location/emotions')
+      .send({
+        lat,
+        long
+      })
+      .expect(400)
+      .end((err, res) => {
+        if (err) {
+          return done(err);
+        }
+
+        done();
+      });
+
+  });
+
+});

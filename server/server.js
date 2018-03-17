@@ -1,7 +1,5 @@
 require('./config/config');
 
-
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const hbs = require('hbs');
@@ -11,7 +9,6 @@ const _ = require('lodash');
 var {
   Location
 } = require('./models/location');
-
 
 const port = process.env.PORT;
 
@@ -174,3 +171,7 @@ app.post('/location/emotions', (req, res) => {
 app.listen(port, () => {
   console.log(`Started up at port ${port}`);
 });
+
+module.exports = {
+  app
+};

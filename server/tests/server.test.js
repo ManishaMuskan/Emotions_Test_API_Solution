@@ -1,17 +1,21 @@
 const expect = require('expect');
 const request = require('supertest');
+const {
+  ObjectID
+} = require('mongodb');
 
 const {
   app
 } = require('./../server');
-var {
+const {
   Location
 } = require('./../models/location');
+const {
+  locations,
+  populateLocations
+} = require('./seeds/seeds');
 
-beforeEach(function(done) {
-  this.timeout(15000);
-  Location.remove({}).then(() => done());
-});
+beforeEach(populateLocations);
 
 describe('POST /tag/location', () => {
 
@@ -39,7 +43,7 @@ describe('POST /tag/location', () => {
         }
 
         Location.find().then((locations) => {
-          expect(locations.length).toBe(1);
+          expect(locations.length).toBe(22);
           expect(locations[0]._id).toExist();
           done();
         }).catch((e) => done(e));
@@ -69,7 +73,7 @@ describe('POST /tag/location', () => {
         }
 
         Location.find().then((locations) => {
-          expect(locations.length).toBe(0);
+          expect(locations.length).toBe(21);
           done();
         }).catch((e) => done(e));
       });
@@ -97,7 +101,7 @@ describe('POST /tag/location', () => {
         }
 
         Location.find().then((locations) => {
-          expect(locations.length).toBe(0);
+          expect(locations.length).toBe(21);
           done();
         }).catch((e) => done(e));
       });

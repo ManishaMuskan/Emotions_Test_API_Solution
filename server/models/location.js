@@ -25,19 +25,6 @@ var LocationSchema = new mongoose.Schema({
   }
 });
 
-// LocationSchema.methods.saveLocation() = function() {
-//   var location = this;
-//
-//   var location = new Location({
-//     "geo_loc.type": "Point",
-//     "geo_loc.coordinates": [res[0].longitude, res[0].latitude],
-//     "location_name": res[0].formattedAddress,
-//     "emotion": req.body.emotion,
-//   }).save();
-//
-//   return location;
-// };
-
 var Location = mongoose.model('Location', LocationSchema);
 
 module.exports = {

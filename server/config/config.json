@@ -1,0 +1,12 @@
+{
+  "development": {
+    "PORT": 3000,
+    "MONGODB_URI": "mongodb://localhost:27017/whyable-assign-db",
+    "GOOGLE_API_KEY": "AIzaSyCj4MFRJjiYXQ678nNptVX38vG_wcYcW2U"
+  },
+  "test": {
+    "PORT": 3000,
+    "MONGODB_URI": "mongodb://localhost:27017/test-whyable-assign-db",
+    "GOOGLE_API_KEY": "AIzaSyCj4MFRJjiYXQ678nNptVX38vG_wcYcW2U"
+  }
+}

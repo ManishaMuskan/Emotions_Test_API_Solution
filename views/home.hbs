@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Whyable Rest APIs</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <h2 class="text-center">Whyable Assignment API(s) Details <span calss="small"><a href="#">Review my code here</a></span></h2>
+    <h4>Note:</h4>
+    <p><em>Postman</em> can be used to test these API(s).</p>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <h3>POST /tag/location</h3>
+        <div class="col-md-3">
+          <h5>Method POST -<h5>
+          </div>
+          <div class="col-md-9">
+            <p>Required request object must contain value for <i> lat, lng and emotion</i></p>
+            <h5><i>for eg:</i></h5>
+          <p>
+            <pre>
+                  {
+                  	"lat": 28.5967439,
+                  	"lng": 77.3285038,
+                  	"emotion": "happy"
+                  }
+              </pre>
+          </p>
+          <h5>On valid request response would be something like:</h5>
+          <p>
+            <pre>
+              {
+                "emo_tagged": {
+                    "location_name": "C-85B, C Block, Sector 8, Noida, Uttar Pradesh 201301, India",
+                    "emotion": "happy"
+                }
+              }
+            </pre>
+          </p>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <h3>POST /location/emotions</h3>
+        <div class="col-md-3">
+          <h5>Method POST -<h5>
+          </div>
+          <div class="col-md-9">
+            <p>Required request object must contain value for <i> lat and lng</i></p>
+            <h5><i>for eg:</i></h5>
+          <p>
+            <pre>
+                    {
+                    	"lat": 27.5987439,
+                    	"lng":  77.3265038
+                    }
+                </pre>
+          </p>
+          <h5>On valid request response would be something like:</h5>
+          <p>
+            <pre>
+              {
+                "locations": [
+                    {
+                        "location_name": "Unnamed Road, Nahra Chauth, Rajasthan 321203, India",
+                        "lat": 27.5949001,
+                        "lng": 77.3239382,
+                        "distance": 0.0007139595991257329,
+                        "angry": 0,
+                        "sad": 1,
+                        "happy": 2,
+                        "neutral": 0
+                    },
+                    {
+                        "location_name": "Sector Rd, Sector 124, Noida, Delhi 201303, India",
+                        "lat": 28.5459956,
+                        "lng": 77.3262496,
+                        "distance": 0.0007253541771238135,
+                        "angry": 0,
+                        "sad": 0,
+                        "happy": 2,
+                        "neutral": 0
+                    }
+                  ]
+                }
+            </pre>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

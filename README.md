@@ -17,11 +17,11 @@ A server-side API based solution where a user can tag his emotion to a particula
 ## Getting Started
 * clone the repository.
 * Make sure your local machine has the node Js, npm and MongoDB installed in it, and you have an active internet connection.
-* To build the project navigate to the project folder (Emotions_Test_API_Solution) and execute the command `**npm install**`. This will    download all the necessary dependencies.
+* To build the project navigate to the project folder (Emotions_Test_API_Solution) and execute the command `npm install`. This will    download all the necessary dependencies.
 
 **Note:** To configure a different port/google_api_key, navigate to **/config/config.json** and change the value of PORT/GOOGLE_API_KEY  env variables by yours.
 
-* Before running node commands, make sure to run `**mongod**` command from console to get connected to the database.
+* Before running node commands, make sure to run `mongod` command from console to get connected to the database.
 
 ***********
 
@@ -29,10 +29,10 @@ A server-side API based solution where a user can tag his emotion to a particula
 To review the project you can manually go through the project folders or follow the instructions below. Necessary scripts are also provided in the package.json file to do the required task of starting the server or testing. To simplify, some necessary commands to run and test the project are as follows.
 
 ### To Run
-Navigate to the Emotions_Test_API_Solution/ and execute the command `**npm start**` in the console to get the server started.
+Navigate to the Emotions_Test_API_Solution/ and execute the command `npm start` in the console to get the server started.
 
 ### To Test
-Navigate to the Emotions_Test_API_Solution/ and execute the command `**npm run test-watch**` in console.
+Navigate to the Emotions_Test_API_Solution/ and execute the command `npm run test-watch` in console.
 
 ***********
 
@@ -43,76 +43,76 @@ After all these set up configured, you are now good to go. Navigate to the http:
 
 ### 1. POST /tag/location
 
-       This request will accept the payload (like one given below) and save the related information to the database.
+This request will accept the payload (like one given below) and save the related information to the database.
 
-       **Required Payload**
-       ```
-               {
-                   "lat": 28.5967439,
-                   "lng":  77.3285038,
-                   "emotion": "neutral"
-               }
-       ```
+**Required Payload**
+```
+     {
+         "lat": 28.5967439,
+         "lng":  77.3285038,
+         "emotion": "neutral"
+     }
+```
 
-       **Response from Server**
-       ```
-               {
-                   "emo_tagged": {
-                       "location_name": "C-85B, C Block, Sector 8, Noida, Uttar Pradesh 201301, India",
-                       "emotion": "neutral"
-                   }
-               }
-       ```
+**Response from Server**
+```
+     {
+         "emo_tagged": {
+             "location_name": "C-85B, C Block, Sector 8, Noida, Uttar Pradesh 201301, India",
+             "emotion": "neutral"
+         }
+     }
+```
 
 ### 2. POST /location/emotions
 
-       This request will accept the payload (like one given below) and send the related information about the locations and emotions tagged to it. The locations will be sorted from nearest to farthest by distance.
+This request will accept the payload (like one given below) and send the related information about the locations and emotions tagged to it. The locations will be sorted from nearest to farthest by distance.
 
-       **Required Payload**
-       ```
-             {
-               "lat": 28.5987439,
-               "lng":  77.3265038
-             }
-       ```
+**Required Payload**
+```
+     {
+       "lat": 28.5987439,
+       "lng":  77.3265038
+     }
+```
 
-       **Response from Server**
-       ```
+**Response from Server**
+```
+     {
+         "locations": [
              {
-                 "locations": [
-                     {
-                         "location_name": "Unnamed Road, Nahra Chauth, Rajasthan 321203, India",
-                         "lat": 27.5949001,
-                         "lng": 77.3239382,
-                         "distance": 0.0007139595991257329,
-                         "angry": 0,
-                         "sad": 1,
-                         "happy": 2,
-                         "neutral": 0
-                     },
-                     {
-                         "location_name": "Sector Rd, Sector 124, Noida, Delhi 201303, India",
-                         "lat": 28.5459956,
-                         "lng": 77.3262496,
-                         "distance": 0.0007253541771238135,
-                         "angry": 0,
-                         "sad": 0,
-                         "happy": 2,
-                         "neutral": 0
-                     },
-                     {
-                         "location_name": "C-85B, C Block, Sector 8, Noida, Uttar Pradesh 201301, India",
-                         "lat": 28.5967439,
-                         "lng": 77.3285038,
-                         "distance": 0.0007259904079174102,
-                         "angry": 2,
-                         "sad": 2,
-                         "happy": 4,
-                         "neutral": 2
-                     }
-                 ]
+                 "location_name": "Unnamed Road, Nahra Chauth, Rajasthan 321203, India",
+                 "lat": 27.5949001,
+                 "lng": 77.3239382,
+                 "distance": 0.0007139595991257329,
+                 "angry": 0,
+                 "sad": 1,
+                 "happy": 2,
+                 "neutral": 0
+             },
+             {
+                 "location_name": "Sector Rd, Sector 124, Noida, Delhi 201303, India",
+                 "lat": 28.5459956,
+                 "lng": 77.3262496,
+                 "distance": 0.0007253541771238135,
+                 "angry": 0,
+                 "sad": 0,
+                 "happy": 2,
+                 "neutral": 0
+             },
+             {
+                 "location_name": "C-85B, C Block, Sector 8, Noida, Uttar Pradesh 201301, India",
+                 "lat": 28.5967439,
+                 "lng": 77.3285038,
+                 "distance": 0.0007259904079174102,
+                 "angry": 2,
+                 "sad": 2,
+                 "happy": 4,
+                 "neutral": 2
              }
-       ```
+         ]
+     }
+```
 
 ***********
 
@@ -122,13 +122,13 @@ After all these set up configured, you are now good to go. Navigate to the http:
 
 * The aggregation function of mongoose is defined with so many stages in between like **$geonear, $group, $project and $sort**. The explanation for using each stage is given below:
 
-__$geonear__ be the first stage of aggregation finds all the locations form nearest to farthest from an input coordinate with distance field added to the output of this stage.
+  _ __$geonear__ be the first stage of aggregation finds all the locations form nearest to farthest from an input coordinate with distance field added to the output of this stage.
 
-Next stage is __$group__, while grouping the input documents location wise, all emotions(sad, angry, happy or neutral) are **_pushed_** in emotions field (array of emotions) for a particular location.
+  _ Next stage is __$group__, while grouping the input documents location wise, all emotions(sad, angry, happy or neutral) are **_pushed_** in emotions field (array of emotions) for a particular location.
 
-Then __$project__, this is projecting the required fields for the next stage.
+  _ Then __$project__, this is projecting the required fields for the next stage.
 
-Again __$project__ stage is used to **_filter_** the array of emotions and then count the occurrence of each emotion for a location. Finally, the __$sort__ stage is used to sort the locations.
+  _ Again __$project__ stage is used to **_filter_** the array of emotions and then count the occurrence of each emotion for a location. Finally, the __$sort__ stage is used to sort the locations.
 
 * For Unit testing of APIs, the proper environment is set and tested on a test database populated by seeding using **Mocha**.
 
@@ -160,6 +160,6 @@ However few of the things that currently comes to my mind:
 * https://stackoverflow.com/questions/27752268/mongodb-create-index-on-array-of-two-fields
 * https://docs.mongodb.com/manual/reference/method/Bulk/
 * https://docs.mongodb.com/manual/reference/operator/aggregation/geoNear/
-* _etc...._
+  _etc...._
 
 #### _Thanks !!_

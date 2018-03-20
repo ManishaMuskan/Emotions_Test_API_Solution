@@ -16,7 +16,7 @@ A server-side API based solution where a user can tag his emotion to a particula
 
 ## Getting Started
 * clone the repository.
-* Make sure your local machine has the node Js, npm and MongoDB installed in it, and you have an active internet connection.
+* Make sure your local machine has the _**node Js, npm and MongoDB**_ installed in it, and you have an active internet connection.
 * To build the project navigate to the project folder (Emotions_Test_API_Solution) and execute the command `npm install`. This will    download all the necessary dependencies.
 
 **Note:** To configure a different port/google_api_key, navigate to **/config/config.json** and change the value of PORT/GOOGLE_API_KEY  env variables by yours.
@@ -122,19 +122,19 @@ This request will accept the payload (like one given below) and send the related
 
 * The aggregation function of mongoose is defined with so many stages in between like **$geonear, $group, $project and $sort**. The explanation for using each stage is given below:
 
-  _ __$geonear__ be the first stage of aggregation finds all the locations form nearest to farthest from an input coordinate with distance field added to the output of this stage.
+  __$geonear__ be the first stage of aggregation finds all the locations form nearest to farthest from an input coordinate with distance field added to the output of this stage.
 
-  _ Next stage is __$group__, while grouping the input documents location wise, all emotions(sad, angry, happy or neutral) are **_pushed_** in emotions field (array of emotions) for a particular location.
+  Next stage is __$group__, while grouping the input documents location wise, all emotions(sad, angry, happy or neutral) are **_pushed_** in emotions field (array of emotions) for a particular location.
 
-  _ Then __$project__, this is projecting the required fields for the next stage.
+  Then __$project__, this is projecting the required fields for the next stage.
 
-  _ Again __$project__ stage is used to **_filter_** the array of emotions and then count the occurrence of each emotion for a location. Finally, the __$sort__ stage is used to sort the locations.
+  Again __$project__ stage is used to **_filter_** the array of emotions and then count the occurrence of each emotion for a location. Finally, the __$sort__ stage is used to sort the locations.
 
 * For Unit testing of APIs, the proper environment is set and tested on a test database populated by seeding using **Mocha**.
 
 ## TDD Approach (using Mocha, Expect and supertest)
 
-* Both the APIs are tested using the mentioned development dependencies for a proper as well as improper payload.
+Both the APIs are tested using the mentioned development dependencies for a proper as well as improper payload.
 
 ## Alternate Approach
 

@@ -127,6 +127,8 @@ describe('POST /location/emotions', () => {
       .expect(200)
       .expect((res) => {
         expect(res.body.locations[0].distance).toExist();
+        expect(res.body.locations[1].distance).toExist();
+        expect(res.body.locations[2].distance).toExist();
       })
       .end((err, res) => {
         if (err) {

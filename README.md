@@ -19,7 +19,7 @@ A server-side API based solution where a user can tag his emotion to a particula
 * Make sure your local machine has the _**node Js, npm and MongoDB**_ installed in it, and you have an active internet connection.
 * To build the project navigate to the project folder (Emotions_Test_API_Solution) and execute the command `npm install`. This will    download all the necessary dependencies.
 
-**Note:** To configure a different port/google_api_key, navigate to **/config/config.json** and change the value of PORT/GOOGLE_API_KEY  env variables by yours.
+  **Note:** To configure a different port/google_api_key, navigate to **/config/config.json** and change the value of PORT/GOOGLE_API_KEY  env variables by yours.
 
 * Before running node commands, make sure to run `mongod` command from console to get connected to the database.
 
@@ -138,7 +138,7 @@ Both the APIs are tested using the mentioned development dependencies for a prop
 
 ## Alternate Approach
 
-* Instead of creating location and emotion detail for every user, we could simply update the same location and add 1 to the emotion data. For eg: suppose the database has the following document *{location_name: Ranchi, angry:2, **happy:3** ...}*. And whenever a user tags an emotion *(say happy)* to that location, we could simply add 1 in the *happy* property and make it *{location_name, angry:2, **happy:4** ...}* .
+* Instead of creating location and emotion detail for every user, we could simply update the same location and add 1 to the emotion data. For eg: suppose the database has the following document *{location_name: Ranchi, angry:2, **happy:3** ...}*. And whenever a user tags an emotion *(say happy)* to that location, we could simply add 1 in the *happy* property and make it *{location_name: Ranchi, angry:2, **happy:4** ...}* .
 
 * Location name instead of *C-85B, C Block, Sector 8, Noida, Uttar Pradesh 201301, India* to ***Noida, Uttar Pradesh 201301*** could be saved, and keep updating the emotion's count for the specific location. It can drastically reduce the DB size.
 
